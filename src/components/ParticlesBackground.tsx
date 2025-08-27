@@ -17,7 +17,7 @@ export default function ParticlesBackground() {
       left: 0,
       width: '100%',
       height: '100%',
-      zIndex: 5,
+      zIndex: 10,
       pointerEvents: 'auto'
     }}>
       <Particles

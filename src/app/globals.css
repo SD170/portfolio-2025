@@ -17,6 +17,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.6;
+  cursor: crosshair;
 }
 
 /* Terminal Color Variables */
@@ -64,6 +65,24 @@ body {
 *:focus {
   outline: 2px solid var(--accent-green);
   outline-offset: 2px;
+}
+
+/* Terminal cursor styles */
+.btn, .social-link, .project-link, .experience-link, .contact-btn {
+  cursor: pointer;
+}
+
+.info-button {
+  cursor: help;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+/* Terminal text cursor for text areas */
+input, textarea {
+  cursor: text;
 }
 
 /* Terminal-style text effects */
@@ -223,8 +242,12 @@ body {
   justify-content: center;
   text-align: center;
   position: relative;
-  z-index: 10;
-  pointer-events: none;
+  z-index: 5;
+  padding-top: 80px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .hero-content {
@@ -275,7 +298,6 @@ body {
   cursor: pointer;
   border: none;
   font-size: 16px;
-  pointer-events: auto;
 }
 
 .btn-primary {
@@ -314,7 +336,6 @@ body {
   color: var(--text-muted);
   transition: all 0.3s ease;
   text-decoration: none;
-  pointer-events: auto;
 }
 
 .social-link:hover {
@@ -662,6 +683,7 @@ body {
 .info-button {
   position: relative;
   cursor: help;
+  z-index: 20;
 }
 
 .info-tooltip {
@@ -669,11 +691,111 @@ body {
   visibility: hidden;
   pointer-events: none;
   transition: all 0.3s ease;
+  z-index: 2000;
 }
 
 .info-button:hover .info-tooltip {
   opacity: 1 !important;
   visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Whoami command styling */
+.whoami-command {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: monospace;
+  font-size: 16px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  pointer-events: auto;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .whoami-command {
+    position: static;
+    transform: none;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .experience-container {
+    gap: 16px;
+  }
+  
+  .experience-card {
+    padding: 16px;
+  }
+  
+  .experience-content {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .experience-left {
+    text-align: center;
+  }
+  
+  .experience-right {
+    text-align: left;
+  }
+  
+  .contact-container {
+    padding: 0 16px;
+  }
+  
+  .contact-card {
+    padding: 24px;
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .contact-button {
+    margin-top: 24px;
+  }
+  
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+  
+  .contact-item-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+  }
+  
+  .contact-details {
+    text-align: center;
+  }
+  
+  .contact-label {
+    font-size: 0.875rem;
+    margin-bottom: 4px;
+  }
+  
+  .contact-value {
+    font-size: 1rem;
+    word-break: break-word;
+  }
 }
 
 /* Contact Section */

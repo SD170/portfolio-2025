@@ -4,8 +4,11 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Phone, MapPin, Terminal, ExternalLink, Info } from 'lucide-react';
 import ParticlesBackground from '@/components/ParticlesBackground';
 import { profile, experience, projects, achievements, skills, contact } from '@/data/portfolio';
+import { useState } from 'react';
 
 export default function Home() {
+  const [showTooltip, setShowTooltip] = useState(false);
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -27,40 +30,110 @@ export default function Home() {
           >
             {/* Main Content */}
             <div style={{ marginBottom: '64px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '32px' }}>
-                <div style={{ position: 'relative' }}>
+              <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+                {/* Portrait Section */}
+                <div style={{ 
+                  display: 'flex',
+                  justifyContent: 'center',
+                  marginBottom: '40px',
+                  marginTop: '20px',
+                  pointerEvents: 'auto'
+                }}>
                   <div style={{ 
-                    width: '80px', 
-                    height: '80px', 
-                    borderRadius: '24px', 
-                    background: 'linear-gradient(135deg, rgba(0, 255, 65, 0.2), rgba(0, 255, 65, 0.05))',
-                    border: '1px solid rgba(0, 255, 65, 0.3)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginRight: '24px'
-                  }}>
-                    <Terminal style={{ width: '40px', height: '40px', color: 'var(--accent-green)' }} />
-                  </div>
-                  <div style={{
-                    position: 'absolute',
-                    top: '-8px',
-                    right: '-8px',
-                    width: '24px',
-                    height: '24px',
-                    background: 'var(--accent-green)',
+                    position: 'relative', 
+                    pointerEvents: 'auto',
+                    backgroundColor: 'var(--bg-primary)',
                     borderRadius: '50%',
-                    animation: 'pulse 2s infinite'
-                  }} />
+                    padding: '3px',
+                    zIndex: 5
+                  }}>
+                    <img 
+                      src="/potrait.png" 
+                      alt="Saswata Dutta" 
+                      style={{
+                        width: '180px',
+                        height: '180px',
+                        borderRadius: '50%',
+                        border: '3px solid var(--accent-green)',
+                        objectFit: 'cover',
+                        boxShadow: '0 0 20px rgba(0, 255, 65, 0.3)',
+                        userSelect: 'none',
+                        WebkitUserSelect: 'none',
+                        MozUserSelect: 'none',
+                        msUserSelect: 'none',
+                        backgroundColor: 'var(--bg-primary)'
+                      }}
+                    />
+                                                              {/* <div 
+                        style={{ 
+                          position: 'relative',
+                          cursor: 'help',
+                          pointerEvents: 'auto',
+                          zIndex: 100
+                        }} 
+                        onMouseEnter={() => setShowTooltip(true)}
+                        onMouseLeave={() => setShowTooltip(false)}
+                      >
+                        <Info size={16} style={{ color: 'var(--accent-green)' }} />
+                        {showTooltip && (
+                          <div style={{
+                            position: 'absolute',
+                            bottom: '100%',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            background: 'var(--bg-tertiary)',
+                            border: '1px solid var(--accent-green)',
+                            borderRadius: '8px',
+                            padding: '8px 12px',
+                            fontSize: '0.75rem',
+                            color: 'var(--text-secondary)',
+                            whiteSpace: 'nowrap',
+                            zIndex: 1000,
+                            marginBottom: '8px',
+                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+                          }}>
+                            Edited with AI - I don&apos;t look so good 😅
+                          </div>
+                        )}
+                      </div> */}
+                  </div>
                 </div>
-                <h1 className="hero-title terminal-text">
-                  {profile.name}
-                </h1>
+                
+                {/* Name Section */}
+                <div style={{ 
+                  position: 'relative',
+                  textAlign: 'center',
+                  marginBottom: '24px',
+                  pointerEvents: 'none'
+                }}>
+                  <div className="whoami-command">
+                    <span style={{ color: 'var(--accent-green)' }}>$</span> whoami
+                  </div>
+                  
+                  <h1 className="hero-title terminal-text" style={{ 
+                    fontSize: '4rem',
+                    fontFamily: "'Courier New', monospace",
+                    letterSpacing: '2px',
+                    margin: 0
+                  }}>
+                    {profile.name}
+                  </h1>
+                </div>
+                
+                <div style={{ 
+                  display: 'inline-block',
+                  padding: '8px 16px',
+                  background: 'rgba(0, 255, 65, 0.1)',
+                  border: '1px solid rgba(0, 255, 65, 0.3)',
+                  borderRadius: '4px',
+                  fontFamily: 'monospace',
+                  fontSize: '12px',
+                  color: 'var(--accent-green)',
+                  letterSpacing: '1px'
+                }}>
+                  <span style={{ color: 'var(--text-muted)' }}>&#47;&#47;</span> {profile.role}
+                </div>
               </div>
-              
-              <h2 className="hero-subtitle">
-                {profile.role}
-              </h2>
               
               <p className="hero-description">
                 Software engineer with 3 years of experience building scalable backend systems and large-scale applications. I joined Intract as the first hire and helped scale it from zero to 14 million users. Currently pursuing MS in Computer Science at Arizona State University, I&apos;m passionate about solving complex engineering challenges in blockchain ecosystems and emerging AI-driven solutions.
