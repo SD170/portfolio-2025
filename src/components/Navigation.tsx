@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-const navItems = [
-  { name: 'About', href: '#home' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' }
-];
+  const navItems = [
+    { name: 'About', href: '#home' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' }
+  ];
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -86,7 +86,8 @@ export default function Navigation() {
                       border: 'none',
                       cursor: 'pointer',
                       padding: '8px 0',
-                      textAlign: 'left'
+                      textAlign: 'left',
+                      fontFamily: "'Courier New', 'Monaco', 'Menlo', monospace, system-ui, -apple-system, sans-serif"
                     }}
                     onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-green)'}
                     onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}

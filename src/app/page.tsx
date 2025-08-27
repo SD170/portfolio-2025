@@ -63,8 +63,7 @@ export default function Home() {
               </h2>
               
               <p className="hero-description">
-                Building scalable systems and innovative solutions in blockchain, web3, and full-stack development. 
-                Passionate about creating technology that makes a real impact.
+                Software engineer with 3 years of experience building scalable backend systems and large-scale applications. I joined Intract as the first hire and helped scale it from zero to 14 million users. Currently pursuing MS in Computer Science at Arizona State University, I&apos;m passionate about solving complex engineering challenges in blockchain ecosystems and emerging AI-driven solutions.
               </p>
             </div>
             
@@ -153,39 +152,43 @@ export default function Home() {
               >
                 <div className="experience-card">
                   <div className="experience-content">
-                    <div className="experience-header">
+                    <div className="experience-left">
                       <h3 className="experience-title">{exp.title}</h3>
-                      <p className="experience-subtitle">{exp.subtitle}</p>
+                      <p className="experience-timeframe">{exp.timeframe}</p>
                     </div>
                     
-                    <p className="experience-description">{exp.description}</p>
+                    <div className="experience-right">
+                      <p className="experience-company">{exp.subtitle}</p>
+                      
+                      <p className="experience-description">{exp.description}</p>
 
-                    {exp.tags && (
-                      <div className="experience-tags">
-                        {exp.tags.map((tag, tagIndex) => (
-                          <span key={tagIndex} className="experience-tag">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                      {exp.tags && (
+                        <div className="experience-tags">
+                          {exp.tags.map((tag, tagIndex) => (
+                            <span key={tagIndex} className="experience-tag">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
 
-                    {exp.links && (
-                      <div className="experience-links">
-                        {Object.entries(exp.links).map(([key, url]) => (
-                          <a
-                            key={key}
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="experience-link"
-                          >
-                            <span style={{ textTransform: 'capitalize' }}>{key}</span>
-                            <ExternalLink size={14} />
-                          </a>
-                        ))}
-                      </div>
-                    )}
+                      {exp.links && (
+                        <div className="experience-links">
+                          {Object.entries(exp.links).map(([key, url]) => (
+                            <a
+                              key={key}
+                              href={url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="experience-link"
+                            >
+                              <span style={{ textTransform: 'capitalize' }}>{key}</span>
+                              <ExternalLink size={14} />
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -271,7 +274,7 @@ export default function Home() {
                       <div style={{ 
                         position: 'relative',
                         cursor: 'help'
-                      }}>
+                      }} className="info-button">
                         <Info size={16} style={{ color: 'var(--accent-green)' }} />
                         <div style={{
                           position: 'absolute',
@@ -286,10 +289,13 @@ export default function Home() {
                           color: 'var(--text-secondary)',
                           whiteSpace: 'nowrap',
                           opacity: 0,
+                          visibility: 'hidden',
                           pointerEvents: 'none',
-                          transition: 'opacity 0.3s ease',
-                          zIndex: 100
-                        }} className="tooltip">
+                          transition: 'all 0.3s ease',
+                          zIndex: 100,
+                          marginBottom: '8px',
+                          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+                        }} className="info-tooltip">
                           Affiliated to {project.associatedWith}
                         </div>
                       </div>
@@ -340,9 +346,11 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="project-card">
-                  <div className="project-image">
-                    <img src={achievement.image} alt={achievement.title} />
-                  </div>
+                  {achievement.image && (
+                    <div className="project-image">
+                      <img src={achievement.image} alt={achievement.title} />
+                    </div>
+                  )}
 
                   <h3 className="project-title">{achievement.title}</h3>
                   <p className="project-subtitle">{achievement.subtitle}</p>
