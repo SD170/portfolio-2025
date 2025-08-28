@@ -1,26 +1,72 @@
+'use client';
+
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Home } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black">
-      <div className="text-center">
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'var(--bg-primary)',
+      color: 'var(--text-primary)',
+      fontFamily: "'Courier New', monospace"
+    }}>
+      <div style={{ textAlign: 'center' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 mb-4">
+          <h1 style={{
+            fontSize: '6rem',
+            fontWeight: 'bold',
+            color: 'var(--accent-green)',
+            marginBottom: '16px',
+            textShadow: '0 0 20px var(--glow-green)'
+          }}>
             404
           </h1>
-          <h2 className="text-2xl md:text-3xl text-white mb-4">Page Not Found</h2>
-          <p className="text-gray-400 mb-8 max-w-md mx-auto">
+          <h2 style={{
+            fontSize: '2rem',
+            color: 'var(--text-primary)',
+            marginBottom: '16px'
+          }}>
+            Page Not Found
+          </h2>
+          <p style={{
+            color: 'var(--text-muted)',
+            marginBottom: '32px',
+            maxWidth: '400px',
+            margin: '0 auto 32px auto'
+          }}>
             The page you&apos;re looking for doesn&apos;t exist. Let&apos;s get you back to the portfolio.
           </p>
           <Link
             href="/"
-            className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full font-medium hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '12px 24px',
+              background: 'var(--accent-green)',
+              color: 'var(--bg-primary)',
+              borderRadius: '8px',
+              fontWeight: '500',
+              textDecoration: 'none',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--accent-green-light)';
+              e.currentTarget.style.transform = 'scale(1.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'var(--accent-green)';
+              e.currentTarget.style.transform = 'scale(1)';
+            }}
           >
             <Home size={20} />
             <span>Back to Home</span>
