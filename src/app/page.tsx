@@ -201,23 +201,40 @@ export default function Home() {
 							</p>
 						</div>
 
-						{/* CTA Buttons */}
-						<div className="hero-buttons" style={{ pointerEvents: "auto" }}>
-							<button
-								onClick={() => scrollToSection("experience")}
-								className="btn btn-primary"
-								style={{ pointerEvents: "auto" }}
+						{/* Scroll Indicator */}
+						<div style={{ 
+							marginTop: '48px',
+							textAlign: 'center',
+							pointerEvents: 'auto'
+						}}>
+							<div style={{
+								display: 'inline-flex',
+								flexDirection: 'column',
+								alignItems: 'center',
+								gap: '8px',
+								color: 'var(--text-muted)',
+								fontSize: '0.875rem',
+								cursor: 'pointer',
+								transition: 'all 0.3s ease'
+							}}
+							onClick={() => scrollToSection("experience")}
+							onMouseEnter={(e) => {
+								e.currentTarget.style.color = 'var(--accent-green)';
+								e.currentTarget.style.transform = 'translateY(-2px)';
+							}}
+							onMouseLeave={(e) => {
+								e.currentTarget.style.color = 'var(--text-muted)';
+								e.currentTarget.style.transform = 'translateY(0)';
+							}}
 							>
-								View Experience
-							</button>
-
-							<button
-								onClick={() => scrollToSection("contact")}
-								className="btn btn-secondary"
-								style={{ pointerEvents: "auto" }}
-							>
-								Contact
-							</button>
+								<span style={{ fontFamily: 'monospace' }}>scroll down</span>
+								<div style={{
+									width: '2px',
+									height: '20px',
+									background: 'var(--accent-green)',
+									animation: 'scrollPulse 2s infinite'
+								}} />
+							</div>
 						</div>
 
 						{/* Social Links */}

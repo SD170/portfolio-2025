@@ -91,6 +91,18 @@ input, textarea {
   text-shadow: 0 0 10px var(--glow-green);
 }
 
+/* Scroll indicator animation */
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+}
+
 .terminal-glow {
   box-shadow: 0 0 20px var(--glow-green);
 }
