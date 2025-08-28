@@ -19,9 +19,16 @@ import {
 	skills,
 	contact,
 } from "@/data/portfolio";
+import React, { useEffect } from "react";
 
 
 export default function Home() {
+	// Prevent scroll restoration issues
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			window.scrollTo(0, 0);
+		}
+	}, []);
 
 	const scrollToSection = (id: string) => {
 		const element = document.getElementById(id);
