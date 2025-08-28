@@ -131,7 +131,7 @@ export default function Home() {
 										position: "relative",
 										textAlign: "center",
 										marginBottom: "24px",
-										pointerEvents: "none",
+										pointerEvents: "auto",
 									}}
 								>
 									<div className="whoami-command">
@@ -195,10 +195,11 @@ export default function Home() {
 						</div>
 
 						{/* CTA Buttons */}
-						<div className="hero-buttons">
+						<div className="hero-buttons" style={{ pointerEvents: "auto" }}>
 							<button
 								onClick={() => scrollToSection("experience")}
 								className="btn btn-primary"
+								style={{ pointerEvents: "auto" }}
 							>
 								View Experience
 							</button>
@@ -206,19 +207,21 @@ export default function Home() {
 							<button
 								onClick={() => scrollToSection("contact")}
 								className="btn btn-secondary"
+								style={{ pointerEvents: "auto" }}
 							>
 								Contact
 							</button>
 						</div>
 
 						{/* Social Links */}
-						<div className="hero-social">
+						<div className="hero-social" style={{ pointerEvents: "auto" }}>
 							<a
 								href={profile.links.github}
 								target="_blank"
 								rel="noopener noreferrer"
 								className="social-link"
 								title="GitHub"
+								style={{ pointerEvents: "auto" }}
 							>
 								<Github size={28} />
 							</a>
@@ -228,6 +231,7 @@ export default function Home() {
 								rel="noopener noreferrer"
 								className="social-link"
 								title="LinkedIn"
+								style={{ pointerEvents: "auto" }}
 							>
 								<Linkedin size={28} />
 							</a>
@@ -237,6 +241,7 @@ export default function Home() {
 								rel="noopener noreferrer"
 								className="social-link"
 								title={`Stack Overflow (${profile.reputation.stackoverflow} rep, 47k reached)`}
+								style={{ pointerEvents: "auto" }}
 							>
 								<svg
 									width="28"
@@ -253,6 +258,7 @@ export default function Home() {
 								rel="noopener noreferrer"
 								className="social-link"
 								title={`Ethereum Stack Exchange (${profile.reputation.ethereumStackExchange} rep, 27k reached)`}
+								style={{ pointerEvents: "auto" }}
 							>
 								<svg
 									width="28"
@@ -330,7 +336,7 @@ export default function Home() {
 											)}
 
 											{exp.links && (
-												<div className="experience-links">
+												<div className="experience-links" style={{ pointerEvents: "auto" }}>
 													{Object.entries(
 														exp.links
 													).map(([key, url]) => (
@@ -340,6 +346,7 @@ export default function Home() {
 															target="_blank"
 															rel="noopener noreferrer"
 															className="experience-link"
+															style={{ pointerEvents: "auto" }}
 														>
 															<span
 																style={{
@@ -546,6 +553,7 @@ export default function Home() {
 										target="_blank"
 										rel="noopener noreferrer"
 										className="project-link"
+										style={{ pointerEvents: "auto" }}
 									>
 										<span>View Project</span>
 										<ExternalLink size={14} />
@@ -613,7 +621,7 @@ export default function Home() {
 									</div>
 
 									{achievement.links && (
-										<div className="experience-links">
+										<div className="experience-links" style={{ pointerEvents: "auto" }}>
 											{Object.entries(
 												achievement.links
 											).map(([key, url]) => (
@@ -623,6 +631,7 @@ export default function Home() {
 													target="_blank"
 													rel="noopener noreferrer"
 													className="experience-link"
+													style={{ pointerEvents: "auto" }}
 												>
 													<span
 														style={{
@@ -724,10 +733,11 @@ export default function Home() {
 									</div>
 								</div>
 
-								<div className="contact-button">
+								<div className="contact-button" style={{ pointerEvents: "auto" }}>
 									<a
 										href={`mailto:${contact.email}?subject=Portfolio Inquiry`}
 										className="contact-btn"
+										style={{ pointerEvents: "auto" }}
 									>
 										<span>Send Message</span>
 										<div className="contact-btn-dot">
