@@ -1,5 +1,15 @@
 "use client";
 
+// Extend Window interface for console commands
+declare global {
+	interface Window {
+		blockchain: () => void;
+		ai: () => void;
+		terminal: () => void;
+		help: () => void;
+	}
+}
+
 import { motion } from "framer-motion";
 import {
 	Github,
@@ -41,27 +51,27 @@ export default function Home() {
 			console.log('%c🚀 Want to see something cool? Try typing "blockchain()" in the console!', 'color: #00ff41; font-size: 12px;');
 			
 			// Add interactive console commands
-			(window as any).blockchain = () => {
+			window.blockchain = () => {
 				console.log('%c⛓️ Blockchain mode activated!', 'color: #00ff41; font-size: 16px; font-weight: bold;');
 				console.log('%c💎 Built Proof-of-Humanity protocols, scaled to 14M users!', 'color: #00ff41; font-size: 12px;');
 				console.log('%c🔗 Worked with EVM, Solidity, NFTs, and multi-chain integrations!', 'color: #00ff41; font-size: 12px;');
 				console.log('%c💰 Generated $590k revenue through innovative blockchain solutions!', 'color: #00ff41; font-size: 12px;');
 			};
 			
-			(window as any).ai = () => {
+			window.ai = () => {
 				console.log('%c🤖 AI mode activated!', 'color: #00ff41; font-size: 16px; font-weight: bold;');
 				console.log('%c🧠 Currently pursuing MS in Computer Science at Arizona State University!', 'color: #00ff41; font-size: 12px;');
 				console.log('%c🔬 Passionate about AI-driven solutions and emerging technologies!', 'color: #00ff41; font-size: 12px;');
 				console.log('%c🎯 Building products that combine scale, reliability, and innovation!', 'color: #00ff41; font-size: 12px;');
 			};
 			
-			(window as any).terminal = () => {
+			window.terminal = () => {
 				console.log('%c🖥️ Terminal mode activated!', 'color: #00ff41; font-size: 16px; font-weight: bold;');
 				console.log('%c📟 This portfolio has a terminal aesthetic with green accents everywhere!', 'color: #00ff41; font-size: 12px;');
 				console.log('%c🎨 Custom CSS variables, monospace fonts, and that sweet terminal glow!', 'color: #00ff41; font-size: 12px;');
 			};
 			
-			(window as any).help = () => {
+			window.help = () => {
 				console.log('%c📚 Available commands:', 'color: #00ff41; font-size: 16px; font-weight: bold;');
 				console.log('%c   blockchain() - Learn about blockchain experience', 'color: #00ff41; font-size: 12px;');
 				console.log('%c   ai() - AI and education background', 'color: #00ff41; font-size: 12px;');
