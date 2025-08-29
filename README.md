@@ -1,4 +1,4 @@
-# 🖥️ Saswata Dutta - Terminal-Style Portfolio
+# 🖥️ Saswata Dutta - Portfolio
 
 > *"Building scalable systems by day, exploring AI by night"*
 
