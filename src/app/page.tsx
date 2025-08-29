@@ -30,6 +30,104 @@ export default function Home() {
 		}
 	}, []);
 
+	// Developer Easter Eggs
+	useEffect(() => {
+		console.log('Easter eggs loading...');
+		
+		setTimeout(() => {
+			console.log('%c👋 Hey there, developer!', 'color: #00ff41; font-size: 20px; font-weight: bold;');
+			console.log('%c🔍 What are you trying to see here?', 'color: #00ff41; font-size: 14px;');
+			console.log('%c💻 This portfolio was built with Next.js, TypeScript, and lots of terminal vibes!', 'color: #888; font-size: 12px;');
+			console.log('%c🚀 Want to see something cool? Try typing "blockchain()" in the console!', 'color: #00ff41; font-size: 12px;');
+			
+			// Add interactive console commands
+			(window as any).blockchain = () => {
+				console.log('%c⛓️ Blockchain mode activated!', 'color: #00ff41; font-size: 16px; font-weight: bold;');
+				console.log('%c💎 Built Proof-of-Humanity protocols, scaled to 14M users!', 'color: #00ff41; font-size: 12px;');
+				console.log('%c🔗 Worked with EVM, Solidity, NFTs, and multi-chain integrations!', 'color: #00ff41; font-size: 12px;');
+				console.log('%c💰 Generated $590k revenue through innovative blockchain solutions!', 'color: #00ff41; font-size: 12px;');
+			};
+			
+			(window as any).ai = () => {
+				console.log('%c🤖 AI mode activated!', 'color: #00ff41; font-size: 16px; font-weight: bold;');
+				console.log('%c🧠 Currently pursuing MS in Computer Science at Arizona State University!', 'color: #00ff41; font-size: 12px;');
+				console.log('%c🔬 Passionate about AI-driven solutions and emerging technologies!', 'color: #00ff41; font-size: 12px;');
+				console.log('%c🎯 Building products that combine scale, reliability, and innovation!', 'color: #00ff41; font-size: 12px;');
+			};
+			
+			(window as any).terminal = () => {
+				console.log('%c🖥️ Terminal mode activated!', 'color: #00ff41; font-size: 16px; font-weight: bold;');
+				console.log('%c📟 This portfolio has a terminal aesthetic with green accents everywhere!', 'color: #00ff41; font-size: 12px;');
+				console.log('%c🎨 Custom CSS variables, monospace fonts, and that sweet terminal glow!', 'color: #00ff41; font-size: 12px;');
+			};
+			
+			(window as any).help = () => {
+				console.log('%c📚 Available commands:', 'color: #00ff41; font-size: 16px; font-weight: bold;');
+				console.log('%c   blockchain() - Learn about blockchain experience', 'color: #00ff41; font-size: 12px;');
+				console.log('%c   ai() - AI and education background', 'color: #00ff41; font-size: 12px;');
+				console.log('%c   terminal() - Terminal aesthetic info', 'color: #00ff41; font-size: 12px;');
+				console.log('%c   help() - Show this help message', 'color: #00ff41; font-size: 12px;');
+			};
+			
+			console.log('%c💡 Type "help()" in the console for available commands!', 'color: #00ff41; font-size: 12px;');
+		}, 1000);
+	}, []);
+
+	// Custom terminal cursor - temporarily disabled
+	// useEffect(() => {
+	// 	console.log('Creating custom cursor...');
+	// 	const cursor = document.createElement('div');
+	// 	cursor.className = 'terminal-cursor';
+	// 	cursor.style.position = 'fixed';
+	// 	cursor.style.width = '20px';
+	// 	cursor.style.height = '20px';
+	// 	cursor.style.border = '2px solid #00ff41';
+	// 	cursor.style.borderRadius = '50%';
+	// 	cursor.style.pointerEvents = 'none';
+	// 	cursor.style.zIndex = '99999';
+	// 	cursor.style.background = 'transparent';
+	// 	cursor.style.boxShadow = '0 0 10px #00ff41';
+	// 	cursor.style.userSelect = 'none';
+	// 	document.body.appendChild(cursor);
+	// 	console.log('Cursor created and added to body');
+
+	// 	const moveCursor = (e: MouseEvent) => {
+	// 		cursor.style.left = e.clientX - 10 + 'px';
+	// 		cursor.style.top = e.clientY - 10 + 'px';
+	// 		// Force hide any text cursor
+	// 		document.body.style.cursor = 'none';
+	// 	};
+
+	// 	// Add hover effects for interactive elements
+	// 	const addHoverEffect = () => {
+	// 		const interactiveElements = document.querySelectorAll('button, a, .btn, .social-link, .project-link, .experience-link, .contact-btn, .nav-link');
+		
+	// 		interactiveElements.forEach(el => {
+	// 			el.addEventListener('mouseenter', () => {
+	// 				cursor.style.transform = 'scale(1.5)';
+	// 				cursor.style.borderColor = 'var(--accent-green-light)';
+	// 			});
+		
+	// 			el.addEventListener('mouseleave', () => {
+	// 				cursor.style.transform = 'scale(1)';
+	// 				cursor.style.borderColor = 'var(--accent-green)';
+	// 			});
+	// 		});
+	// 	};
+
+	// 	document.addEventListener('mousemove', moveCursor);
+	
+	// 	// Add hover effects after a short delay to ensure elements are loaded
+	// 	setTimeout(addHoverEffect, 100);
+
+	// 	return () => {
+	// 		document.removeEventListener('mousemove', moveCursor);
+	// 		if (cursor.parentNode) {
+	// 			cursor.parentNode.removeChild(cursor);
+	// 		}
+	// 	};
+	// }, []);
+
 	const scrollToSection = (id: string) => {
 		const element = document.getElementById(id);
 		if (element) {
@@ -97,38 +195,52 @@ export default function Home() {
 													"var(--bg-primary)",
 											}}
 										/>
-										{/* <div 
-                        style={{ 
-                          position: 'relative',
-                          cursor: 'help',
-                          pointerEvents: 'auto',
-                          zIndex: 100
-                        }} 
-                        onMouseEnter={() => setShowTooltip(true)}
-                        onMouseLeave={() => setShowTooltip(false)}
-                      >
-                        <Info size={16} style={{ color: 'var(--accent-green)' }} />
-                        {showTooltip && (
-                          <div style={{
-                            position: 'absolute',
-                            bottom: '100%',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            background: 'var(--bg-tertiary)',
-                            border: '1px solid var(--accent-green)',
-                            borderRadius: '8px',
-                            padding: '8px 12px',
-                            fontSize: '0.75rem',
-                            color: 'var(--text-secondary)',
-                            whiteSpace: 'nowrap',
-                            zIndex: 1000,
-                            marginBottom: '8px',
-                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
-                          }}>
-                            Edited with AI - I don&apos;t look so good 😅
-                          </div>
-                        )}
-                      </div> */}
+																				<div 
+											className="info-button"
+											style={{ 
+												position: 'relative',
+												pointerEvents: 'auto',
+												zIndex: 100
+											}} 
+											onMouseEnter={(e) => {
+												const tooltip = e.currentTarget.querySelector('.info-tooltip') as HTMLElement;
+												if (tooltip) {
+													tooltip.style.opacity = '1';
+													tooltip.style.visibility = 'visible';
+												}
+											}}
+											onMouseLeave={(e) => {
+												const tooltip = e.currentTarget.querySelector('.info-tooltip') as HTMLElement;
+												if (tooltip) {
+													tooltip.style.opacity = '0';
+													tooltip.style.visibility = 'hidden';
+												}
+											}}
+										>
+											<Info size={16} style={{ color: 'var(--accent-green)' }} />
+											<div style={{
+												position: 'absolute',
+												bottom: '100%',
+												left: '50%',
+												transform: 'translateX(-50%)',
+												background: 'var(--bg-tertiary)',
+												border: '1px solid var(--accent-green)',
+												borderRadius: '8px',
+												padding: '8px 12px',
+												fontSize: '0.75rem',
+												color: 'var(--text-secondary)',
+												whiteSpace: 'nowrap',
+												opacity: 0,
+												visibility: 'hidden',
+												pointerEvents: 'none',
+												transition: 'all 0.3s ease',
+												zIndex: 1000,
+												marginBottom: '8px',
+												boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
+											}} className="info-tooltip">
+												AI generated image - I&apos;m not this good looking 😅
+											</div>
+										</div>
 									</div>
 								</div>
 

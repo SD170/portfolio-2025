@@ -20,6 +20,71 @@ body {
   cursor: crosshair;
 }
 
+/* Custom terminal cursor */
+.terminal-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transition: all 0.1s ease;
+  background: transparent;
+  box-shadow: 0 0 10px var(--accent-green);
+}
+
+.terminal-cursor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px var(--accent-green);
+}
+
+/* Terminal cursor styles */
+* {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><line x1='10' y1='0' x2='10' y2='20' stroke='%2300ff41' stroke-width='2'/><line x1='0' y1='10' x2='20' y2='10' stroke='%2300ff41' stroke-width='2'/></svg>") 10 10, crosshair;
+}
+
+/* Show default cursor only on text inputs and textareas */
+input, textarea {
+  cursor: text !important;
+}
+
+/* Interactive elements - show default pointer cursor */
+button, a, .btn, .social-link, .project-link, .experience-link, .contact-btn, .nav-link, 
+[onClick], [role="button"], [tabindex] {
+  cursor: pointer !important;
+}
+
+/* Ensure all links show pointer cursor */
+a.project-link, a.experience-link, a.social-link, a.contact-btn, a.nav-link {
+  cursor: pointer !important;
+}
+
+/* Override any other cursor styles for interactive elements */
+.project-link, .experience-link, .social-link, .contact-btn, .nav-link {
+  cursor: pointer !important;
+}
+
+/* Force pointer cursor on all interactive elements and their children */
+.project-link *, .experience-link *, .social-link *, .contact-btn *, .nav-link *,
+button *, a * {
+  cursor: pointer !important;
+}
+
+/* Override the green crosshair for all interactive elements */
+.project-link, .experience-link, .social-link, .contact-btn, .nav-link,
+button, a, [onClick], [role="button"], [tabindex] {
+  cursor: pointer !important;
+}
+
 /* Terminal Color Variables */
 :root {
   --bg-primary: #0f0f0f;
@@ -588,6 +653,7 @@ input, textarea {
   text-decoration: none;
   font-size: 0.875rem;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .experience-link:hover {
@@ -675,6 +741,7 @@ input, textarea {
   text-decoration: none;
   font-size: 0.875rem;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .project-link:hover {
@@ -695,8 +762,13 @@ input, textarea {
 /* Info button hover styles */
 .info-button {
   position: relative;
-  cursor: help;
+  cursor: help !important;
   z-index: 20;
+}
+
+/* Force help cursor on info button and all its children */
+.info-button, .info-button * {
+  cursor: help !important;
 }
 
 .info-tooltip {
