@@ -205,7 +205,7 @@ export default function Home() {
 													"var(--bg-primary)",
 											}}
 										/>
-																				<div 
+																				{/* <div 
 											className="info-button"
 											style={{ 
 												position: 'relative',
@@ -250,7 +250,7 @@ export default function Home() {
 											}} className="info-tooltip">
 												AI generated image - I&apos;m not this good looking 😅
 											</div>
-										</div>
+										</div> */}
 									</div>
 								</div>
 
