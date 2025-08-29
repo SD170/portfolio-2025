@@ -185,7 +185,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - **LinkedIn:** [Saswata Dutta](https://linkedin.com/in/sd170)
 - **GitHub:** [@SD170](https://github.com/SD170)
 - **Stack Overflow:** [47k+ reached](https://stackoverflow.com/users/11974952/saswata-dutta)
-- **Email:** saswata.dutta@asu.edu
+- **Email:** duttasaswata7@gmail.com
 
 ---
 
