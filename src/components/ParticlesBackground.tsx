@@ -17,8 +17,8 @@ export default function ParticlesBackground() {
       left: 0,
       width: '100%',
       height: '100%',
-      zIndex: 1,
-      pointerEvents: 'none'
+      zIndex: 10,
+      pointerEvents: 'auto'
     }}>
       <Particles
         id="tsparticles"
@@ -26,7 +26,7 @@ export default function ParticlesBackground() {
         options={{
           particles: {
             number: {
-              value: 50,
+              value: 80,
               density: {
                 enable: true,
                 value_area: 800
@@ -39,7 +39,7 @@ export default function ParticlesBackground() {
               type: "circle"
             },
             opacity: {
-              value: 0.3,
+              value: 0.6,
               random: false
             },
             size: {
@@ -66,7 +66,7 @@ export default function ParticlesBackground() {
             }
           },
           interactivity: {
-            detect_on: "canvas",
+            detect_on: "window",
             events: {
               onhover: {
                 enable: true,
